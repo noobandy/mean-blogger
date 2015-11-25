@@ -1,43 +1,52 @@
 var mongoose = require("mongoose");
 var ObjectId = mongoose.Schema.ObjectId;
-var slug = require("slug");
-
-slug.defaults.mode ='rfc3986';
-slug.defaults.modes['rfc3986'] = {
-    replacement: '-',      // replace spaces with replacement
-    symbols: true,         // replace unicode symbols or not
-    remove: null,          // (optional) regex to remove characters
-    lower: true,           // result in lower case
-    charmap: slug.charmap, // replace special characters
-    multicharmap: slug.multicharmap // replace multi-characters
-};
+var path = require("path");
+var slugify = require(path.join(__dirname, "../utils/slugify"));
 
 var PostSchema = mongoose.Schema({
 	title : {
 		type : String,
-		required : "{PATH} is required."
+		required : true
 	},
 	slug : {
-		type : String,
-		required : "{PATH} is required."
+		type : String
 	},
 	content : {
 		type : String,
-		required : "{PATH} is required."
+		required : true
 	},
 	blog : {
 		type : ObjectId,
 		ref : "Blog",
-		required : "{PATH} is required."
+		required : true
 	}
 
 });
 
-PostSchema.pre("validate", function(next){
-	this.slug = slug(this.title);
-	next();
+var Post = mongoose.model("Post", PostSchema);
+
+PostSchema.pre("save", function(next){
+
+	var slug = slugify(this.title);
+	
+	var that = this;
+	
+	Post.count({ $and : [{"blog" : this.blog }, {"slug" : { $regex : "^"+slug } }]},
+		function(err, count) {
+
+		if(err) next(err);
+
+		if(count > 0){
+			slug = slug + "-" + count;
+		} 
+
+		that.slug = slug;
+		
+		next();
+	});
+
 });
 
-var Post = mongoose.model("Post", PostSchema);
+
 
 module.exports = Post;

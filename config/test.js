@@ -1,6 +1,6 @@
 module.exports = {
 	db : {
-		url : "mongodb://localhost/blogger",
+		url : "mongodb://localhost/blogger-test",
 		options : {
 
 		}
