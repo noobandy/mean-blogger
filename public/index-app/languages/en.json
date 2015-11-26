@@ -1,0 +1,21 @@
+{
+	"IndexApp.appName" : "Blogger",
+	"IndexApp.about" : "About",
+	"IndexApp.contact" : "Contact",
+	"IndexApp.login" : "Login",
+	"IndexApp.username" : "User name",
+	"IndexApp.password" : "Password",
+	"IndexApp.repeatPassword" : "Repeat above password",
+	"IndexApp.email" : "Email Address",
+	"IndexApp.blogName" : "Blog name",
+	"IndexApp.clear" : "Clear",
+	"IndexApp.submit" : "Submit",
+	"IndexApp.contactUs" : "Contact Us",
+	"IndexApp.firstName" : "First Name",
+	"IndexApp.lastName" : "Last Name",
+	"IndexApp.phone" : "Phone",
+	"IndexApp.contactUsMessagePlaceHolder" : "Enter your massage for us here. We will get back to you within 2 business days.",
+	"IndexApp.createAccount" : "Create Account",
+	"IndexApp.footer" : "Footer"
+
+}

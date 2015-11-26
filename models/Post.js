@@ -48,5 +48,13 @@ PostSchema.pre("save", function(next){
 });
 
 
+PostSchema.statics.findByBlog = function(blog, criteria, cb) {
+	Post.find({"blog" : blog._id}, function(err, docs) {
+		if(err) cb(err);
+
+		cb(null, docs);
+	});
+};
+
 
 module.exports = Post;

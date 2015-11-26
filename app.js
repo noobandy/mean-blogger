@@ -6,9 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var blogs = require('./routes/blogs');
-var posts = require('./routes/posts');
+var admin = require('./routes/admin');
+var public = require('./routes/public');
 var login = require('./routes/login');
 
 var app = express();
@@ -23,12 +22,17 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use("/public", express.static(path.join(__dirname, 'public')));
+app.use("/bower_components", express.static(path.join(__dirname, 'bower_components')));
+
+var basicAuth = require(path.join(__dirname, "./utils/basic-auth"));
+
+app.use("/api/admin",basicAuth);
+
 
 app.use('/', routes);
-app.use('/api', users);
-app.use('/api', blogs);
-app.use('/api', posts);
+app.use('/api/public', public);
+app.use('/api/admin', admin);
 app.use('/api', login);
 
 // catch 404 and forward to error handler
