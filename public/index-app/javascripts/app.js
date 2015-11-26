@@ -8,6 +8,15 @@ indexApp.config(["localStorageServiceProvider",
 		localStorageServiceProvider.setPrefix("indexApp");
 	}]);
 
+indexApp.config(["cfpLoadingBarProvider", function(cfpLoadingBarProvider) {
+	cfpLoadingBarProvider.spinnerTemplate = '<div id="pluswrap">\
+	<div class="plus">\
+	<img src="/public/index-app/images/loader.gif">\
+	</div>\
+	</div>';
+
+}]);
+
 
 indexApp.config(['$translateProvider', function ($translateProvider) {
 	$translateProvider.useStaticFilesLoader({
