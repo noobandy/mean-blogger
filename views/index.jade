@@ -19,13 +19,13 @@ block content
 						span(class="icon-bar")
 						span(class="icon-bar")
 						span(class="icon-bar")
-					a(class="navbar-brand" data-ui-sref="home" data-ng-bind="'IndexApp.appName' | translate")
+					a(class="navbar-brand" data-ui-sref="home" data-translate="IndexApp.appName")
 				div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
 					ul(class="nav navbar-nav")
 						li
-							a(data-ui-sref="about" data-ng-bind="'IndexApp.about' | translate")
+							a(data-ui-sref="about" data-translate="IndexApp.about")
 						li
-							a(data-ui-sref="contact" data-ng-bind="'IndexApp.contact' | translate")
+							a(data-ui-sref="contact" data-translate="IndexApp.contact")
 					form(class="navbar-form navbar-right" role="form")
 						div(class="input-group")
 							span(class="input-group-addon")
@@ -36,11 +36,11 @@ block content
 								i(class="fa fa-lock")
 							input(type="password" class="form-control" name="password" value="" placeholder="{{'IndexApp.password' | translate}}")
 
-						button(type="submit" class="btn btn-primary" data-ng-bind="'IndexApp.login' | translate")
+						button(type="submit" class="btn btn-primary" data-translate="IndexApp.login")
 
 		div(class="container" data-ui-view="")
 
 		footer(class="footer")
 			div(class="container")
-				p(class="text-muted" data-ng-bind="'IndexApp.footer' | translate")
+				p(class="text-muted" data-translate="IndexApp.footer")
                    
