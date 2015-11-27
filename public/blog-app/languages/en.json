@@ -1,0 +1,20 @@
+{
+	"BlogApp.appName" : "Blogger",
+	"BlogApp.about" : "About",
+	"BlogApp.contact" : "Contact",
+	"BlogApp.login" : "Login",
+	"BlogApp.username" : "User name",
+	"BlogApp.password" : "Password",
+	"BlogApp.repeatPassword" : "Repeat above password",
+	"BlogApp.email" : "Email Address",
+	"BlogApp.blogName" : "Blog name",
+	"BlogApp.clear" : "Clear",
+	"BlogApp.submit" : "Submit",
+	"BlogApp.contactUs" : "Contact Us",
+	"BlogApp.firstName" : "First Name",
+	"BlogApp.lastName" : "Last Name",
+	"BlogApp.phone" : "Phone",
+	"BlogApp.contactUsMessagePlaceHolder" : "Enter your massage for us here. We will get back to you within 2 business days.",
+	"BlogApp.createAccount" : "Create Account",
+	"BlogApp.footer" : "Footer"
+}

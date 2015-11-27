@@ -1,0 +1,76 @@
+ <div class="row">
+
+    <div class="col-md-8" data-ui-view>
+        <!--Main Content Here -->
+    </div>
+
+    <!-- Blog Sidebar Widgets Column -->
+    <div class="col-md-4">
+        <!-- Blog Search Well -->
+        <div class="well">
+            <form novalidate name="searchForm">
+                 <h4>Blog Search</h4>
+                <div class="input-group" data-ng-class="{'has-error' : searchForm.searchText.$touched && !searchForm.$valid}">
+                    <input name="searchText" required data-ng-model="searchText" type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button data-ng-click="searchForm.$valid && search(searchText)" class="btn btn-default" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <!-- Blog Categories Well -->
+        <div class="well">
+            <h4>Blog Categories</h4>
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="nav nav-pills">
+                        <li data-ng-repeat="category in categoryListOne"><a data-ui-sref="blog.posts({searchText : null, category : category.name, tag : null, startDate : null, endDate : null})">
+                            {{category.name}} <span class="badge">{{category.count}}</span>
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <ul class="nav nav-pills">
+                        <li data-ng-repeat="category in categoryListTwo"><a data-ui-sref="blog.posts({searchText : null, category : category.name, tag : null, startDate : null, endDate : null})" data-ui-sref-active="active">
+                            {{category.name}} <span class="badge">{{category.count}}</span>
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.col-lg-6 -->
+            </div>
+        <!-- /.row -->
+        </div>
+
+        <!-- Blog Tags Well -->
+        <div class="well">
+            <h4>Blog Tags</h4>
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="nav nav-pills">
+                        <li data-ng-repeat="tag in tagListOne"><a data-ui-sref="blog.posts({searchText : null, category : null, tag : tag.name, startDate : null, endDate : null})" data-ui-sref-active="active">
+                             {{tag.name}} <span class="badge">{{tag.count}}</span>
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <ul class="nav nav-pills">
+                        <li data-ng-repeat="tag in tagListTwo"><a data-ui-sref="blog.posts({searchText : null, category : null, tag : tag.name, startDate : null, endDate : null})" data-ui-sref-active="active">
+                            {{tag.name}} <span class="badge">{{tag.count}}</span>
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.col-lg-6 -->
+            </div>
+        <!-- /.row -->
+        </div>
+    </div>
+</div>
+<!-- /.row -->
